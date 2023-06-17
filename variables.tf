@@ -1,4 +1,1 @@
-variable "env" {
-  env = "dev"
-
-}
+variable "env" {}
