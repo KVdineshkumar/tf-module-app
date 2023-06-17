@@ -2,7 +2,7 @@ resource "null_resource" "test" {
   triggers = {
     xyz = timestamp()
   }
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     command = "echo Hello World - Env - ${var.env}"
   }
 }
