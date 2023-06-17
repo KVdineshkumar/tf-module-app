@@ -1,4 +1,2 @@
-variable "env" {
-  env = dev
-  env = prod
-}
+#variable "env" {}
+env = "dev"
