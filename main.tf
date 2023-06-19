@@ -99,7 +99,8 @@ provisioner "remote-exec" {
   }
   inline = [
     "sudo labauto ansible",
-    "ansible-pull -i localhost, -U https://github.com/KVdineshkumar/roboshop-ansible main.yml -e env=dev -e role_name=${var.name}"
+    "sudo set-hostname -skip-apply ${var.component}",
+    "ansible-pull -i localhost, -U https://github.com/KVdineshkumar/roboshop-ansible main.yml -e env=${var.env} -e role_name=${var.component}"
 
   ]
 }
