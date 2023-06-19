@@ -83,7 +83,7 @@ resource "aws_route53_record" "dns" {
   zone_id = "Z08427681QR9BSPPMJC53"
   name    = "${var.component}-dev"
   type    = "A"
-  ttl     = 30
+  ttl     = 300
   records = [aws_instance.instance.private_ip]
 }
 resource "null_resource" "ansible" {
