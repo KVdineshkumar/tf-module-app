@@ -3,8 +3,6 @@ resource "aws_iam_policy" "policy" {
   path        = "/"
   description = "${var.component}-${var.env}-ssm-pm-policy"
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
@@ -17,7 +15,7 @@ resource "aws_iam_policy" "policy" {
           "ssm:GetParameters",
           "ssm:GetParameter"
         ],
-        "Resource": "arn:aws:ssm:us-east-1:833241119429:parameter/roboshop.${var.env}.${component}.*"
+        "Resource": "arn:aws:ssm:us-east-1:833241119429:parameter/roboshop.${var.env}.${var.component}.*"
       }
     ]
   })
