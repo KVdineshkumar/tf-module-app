@@ -83,17 +83,20 @@ resource "aws_route53_record" "dns" {
   zone_id = "Z08427681QR9BSPPMJC53"
   name    = "${var.component}-dev"
   type    = "A"
-  ttl     = 300
+  ttl     = 30
   records = [aws_instance.instance.private_ip]
 }
 resource "null_resource" "ansible" {
   depends_on = [aws_instance.instance, aws_route53_record.dns]
 provisioner "remote-exec" {
+
+
   connection {
     type    = "ssh"
     user    = "centos"
     password = "DevOps321"
-    host = aws_instance.instance.public_ip
+    host     = aws_instance.instance.public_ip
+
   }
   inline = [
     "sudo labauto ansible",
